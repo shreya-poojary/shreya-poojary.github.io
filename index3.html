@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shreya Poojary - Senior DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:     #faf8f4;
+  --bg2:    #f4f1eb;
+  --bg3:    #edeae2;
+  --card:   #ffffff;
+  --border: rgba(37,99,235,0.1);
+  --border2:rgba(37,99,235,0.25);
+  --text:   #1a1a2e;
+  --muted:  #6b7280;
+  --accent: #2563eb;
+  --accent2:#0891b2;
+  --accent3:#d97706;
+  --green:  #059669;
+  --purple: #7c3aed;
+  --fd: 'Syne', sans-serif;
+  --fb: 'DM Sans', sans-serif;
+  --fm: 'DM Mono', monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* subtle dot pattern */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(37,99,235,0.06) 1px,transparent 1px);
+  background-size:28px 28px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(250,248,244,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent)!important;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600!important;letter-spacing:0.2px!important}
+
+section{position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 40px}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 0 60px}
+.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:70px;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.25);color:var(--green);font-size:12px;padding:5px 14px;border-radius:20px;margin-bottom:28px;font-family:var(--fm);font-weight:500}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,0.4)}50%{box-shadow:0 0 0 6px rgba(5,150,105,0)}}
+.hero-name{font-family:var(--fd);font-size:clamp(44px,5vw,66px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:10px;color:var(--text)}
+.hero-name .last{color:var(--accent);display:block}
+.hero-title{font-size:13px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-family:var(--fm)}
+.awards{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.award{font-family:var(--fm);font-size:11px;padding:4px 11px;border-radius:4px;border:1px solid rgba(124,58,237,0.25);background:rgba(124,58,237,0.06);color:var(--purple)}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.85;max-width:500px;margin-bottom:34px}
+.hero-links{display:flex;gap:10px;flex-wrap:wrap}
+.btn-p{background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background 0.2s,transform 0.15s;box-shadow:0 2px 8px rgba(37,99,235,0.25)}
+.btn-p:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-g{background:#fff;color:var(--text);padding:12px 24px;border-radius:8px;font-weight:500;font-size:13px;text-decoration:none;border:1px solid var(--border2);transition:border-color 0.2s,transform 0.15s;display:inline-flex;align-items:center;gap:7px}
+.btn-g:hover{border-color:var(--accent);transform:translateY(-1px)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.stat:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.1)}
+.stat-val{font-family:var(--fd);font-size:36px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-val.a{color:var(--accent3)}
+.stat-val.t{color:var(--accent2)}
+.stat-val.g{color:var(--green)}
+.stat-lbl{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
+.stat-sub{font-size:11px;color:var(--muted);font-family:var(--fm)}
+
+/* SECTION HEADER */
+.sh{margin-bottom:48px}
+.stag{font-family:var(--fm);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
+.stitle{font-family:var(--fd);font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:10px;color:var(--text)}
+.sdesc{color:var(--muted);font-size:14px;max-width:520px}
+
+/* ACHIEVEMENTS */
+#achievements{padding:64px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ach-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.ach-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.08)}
+.ach-ico{font-size:26px;flex-shrink:0;margin-top:2px}
+.ach-title{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ach-org{font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:6px}
+.ach-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* EXPERIENCE */
+#experience{padding:100px 0}
+.tl{position:relative}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent);border-radius:2px}
+.tl-item{padding-left:36px;padding-bottom:56px;position:relative}
+.tl-item::before{content:'';position:absolute;left:-5px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl-item:last-child{padding-bottom:0}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:12px;flex-wrap:wrap}
+.tl-role{font-family:var(--fd);font-size:19px;font-weight:700;color:var(--text)}
+.tl-period{font-family:var(--fm);font-size:11px;color:var(--accent);white-space:nowrap;padding:4px 12px;background:rgba(37,99,235,0.07);border-radius:20px;border:1px solid rgba(37,99,235,0.15)}
+.tl-co{font-size:13px;color:var(--accent2);font-weight:500;margin-bottom:14px;font-family:var(--fm)}
+.tl-ul{list-style:none}
+.tl-ul li{font-size:14px;color:var(--muted);padding:3px 0 3px 18px;position:relative;line-height:1.7}
+.tl-ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:2px;background:var(--accent);border-radius:1px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--fm);font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.14);color:var(--accent)}
+
+/* EDUCATION */
+#education{padding:100px 0;background:var(--bg2)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.edu-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:30px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.edu-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.08)}
+.edu-deg{font-family:var(--fd);font-size:17px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
+.edu-school{font-family:var(--fm);font-size:12px;color:var(--accent2);margin-bottom:4px}
+.edu-period{font-family:var(--fm);font-size:11px;color:var(--muted);margin-bottom:16px}
+.edu-ul{list-style:none}
+.edu-ul li{font-size:13px;color:var(--muted);padding:3px 0 3px 18px;position:relative;line-height:1.65}
+.edu-ul li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:2px;background:var(--accent);border-radius:1px}
+.edu-badge{display:inline-block;margin-top:16px;font-family:var(--fm);font-size:11px;padding:4px 12px;border-radius:6px;background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.25);color:var(--green);font-weight:500}
+
+/* SKILLS */
+#skills{padding:100px 0}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.sk-cat{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.sk-cat:hover{border-color:var(--border2);box-shadow:0 4px 16px rgba(37,99,235,0.08)}
+.sk-title{font-family:var(--fd);font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.sk-pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{font-size:12px;font-family:var(--fm);padding:5px 10px;border-radius:6px;background:var(--bg2);border:1px solid var(--border);color:var(--text);cursor:default;transition:border-color 0.15s,background 0.15s,color 0.15s}
+.pill:hover{border-color:var(--accent);background:rgba(37,99,235,0.06);color:var(--accent)}
+
+/* PROJECTS */
+#projects{padding:100px 0;background:var(--bg2)}
+.proj-note{display:flex;align-items:center;gap:10px;background:rgba(217,119,6,0.06);border:1px solid rgba(217,119,6,0.2);border-radius:8px;padding:13px 18px;margin-bottom:32px;font-size:13px;color:var(--accent3);font-family:var(--fm)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.proj-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.08)}
+.proj-card.wip{border-style:dashed;opacity:0.7}
+.proj-card.wip:hover{opacity:1}
+.proj-meta{display:flex;justify-content:space-between;align-items:center}
+.proj-yr{font-family:var(--fm);font-size:11px;color:var(--muted)}
+.badge{font-family:var(--fm);font-size:10px;padding:3px 9px;border-radius:5px;font-weight:500}
+.badge.ai{color:var(--purple);background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2)}
+.badge.app{color:var(--accent2);background:rgba(8,145,178,0.08);border:1px solid rgba(8,145,178,0.2)}
+.badge.wip{color:var(--muted);background:rgba(107,114,128,0.08);border:1px solid rgba(107,114,128,0.2)}
+.proj-title{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);line-height:1.3}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.75;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{font-family:var(--fm);font-size:11px;padding:3px 9px;border-radius:5px;background:var(--bg2);color:var(--muted);border:1px solid var(--border)}
+.proj-link{font-size:12px;color:var(--accent);text-decoration:none;font-family:var(--fm);font-weight:500}
+.proj-link:hover{text-decoration:underline}
+.proj-link.off{color:var(--muted);pointer-events:none}
+
+/* CERTIFICATIONS */
+#certifications{padding:100px 0}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.cert-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;align-items:flex-start;gap:15px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,0.08)}
+.cert-ico{width:40px;height:40px;background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cert-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:3px}
+.cert-iss{font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:2px}
+.cert-date{font-size:11px;color:var(--muted);font-family:var(--fm)}
+
+/* CONTACT */
+#contact{padding:100px 0;background:var(--bg2)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.clinks{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.citem{display:flex;align-items:center;gap:14px;padding:15px 20px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.citem:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:0 4px 16px rgba(37,99,235,0.1)}
+.cico{width:36px;height:36px;background:rgba(37,99,235,0.07);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cico svg{width:15px;height:15px}
+.clbl{font-size:11px;color:var(--muted);font-family:var(--fm);margin-bottom:1px}
+.cval{font-size:13px;color:var(--text);font-weight:500}
+.cta-box{background:#fff;border:1px solid var(--border);border-radius:16px;padding:36px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.avail{display:block;font-family:var(--fm);font-size:12px;color:var(--green);background:rgba(5,150,105,0.07);border:1px solid rgba(5,150,105,0.22);padding:7px 16px;border-radius:7px;margin-bottom:20px;font-weight:500}
+.cta-box h3{font-family:var(--fd);font-size:24px;font-weight:800;margin-bottom:12px;letter-spacing:-0.5px;color:var(--text)}
+.cta-box p{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px}
+
+footer{border-top:1px solid var(--border);padding:26px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;background:var(--bg)}
+footer p{font-size:12px;color:var(--muted);font-family:var(--fm)}
+footer a{color:var(--accent);text-decoration:none}
+
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .container{padding:0 20px}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .stats{grid-template-columns:1fr 1fr}
+  .ach-grid{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr;gap:40px}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Shreya<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#achievements">Awards</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span class="dot"></span>Available May 2026 - Chicago, IL</div>
+        <h1 class="hero-name">Shreya<span class="last">Poojary</span></h1>
+        <p class="hero-title">Senior DevOps and Cloud Engineer</p>
+        <div class="awards">
+          <span class="award">AWS Imagine Panel Speaker 2025</span>
+          <span class="award">INFORMS Chapter President</span>
+          <span class="award">3x SPOT Award</span>
+          <span class="award">4.0 GPA at UIC</span>
+        </div>
+        <p class="hero-desc">6+ years engineering resilient cloud infrastructure on AWS, Kubernetes, and hybrid environments. Specialized in CI/CD automation with GitHub Actions and Harness, IaC with Terraform, CloudFormation and CDK, and agentic AI systems. MS-MIS at UIC graduating May 2026.</p>
+        <div class="hero-links">
+          <a href="#contact" class="btn-p">Get In Touch</a>
+          <a href="https://github.com/shreya-poojary" target="_blank" class="btn-g">GitHub</a>
+          <a href="https://linkedin.com/in/shreyapoojary31" target="_blank" class="btn-g">LinkedIn</a>
+          <a href="https://www.credly.com/users/shreya-jayaram-poojary/badges" target="_blank" class="btn-g">Credly</a>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">6+</div>
+          <div class="stat-lbl">Years Experience</div>
+          <div class="stat-sub">AWS - K8s - CI/CD</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val a">50%</div>
+          <div class="stat-lbl">Deploy Time Cut</div>
+          <div class="stat-sub">GitHub Actions + Harness</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val t">25%</div>
+          <div class="stat-lbl">Downtime Reduced</div>
+          <div class="stat-sub">CloudWatch + Opsgenie</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val g">4.0</div>
+          <div class="stat-lbl">MS-MIS GPA</div>
+          <div class="stat-sub">Univ. of Illinois Chicago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container">
+    <div class="sh fade-in" style="margin-bottom:32px">
+      <span class="stag">// recognition</span>
+      <h2 class="stitle">Leadership and Achievements</h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-card fade-in">
+        <div class="ach-ico">&#127908;</div>
+        <div>
+          <div class="ach-title">AWS Imagine Panel Speaker</div>
+          <div class="ach-org">Amazon Web Services - 2025</div>
+          <div class="ach-desc">Represented UIC delivering "Unleashing Innovation with AWS Innovation Sandbox" and sharing insights from an NLP-to-Database project implementation.</div>
+        </div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-ico">&#127963;</div>
+        <div>
+          <div class="ach-title">INFORMS Chapter President</div>
+          <div class="ach-org">UIC - May 2025 to Present</div>
+          <div class="ach-desc">Elected to lead UIC's student chapter, organizing events and fostering collaboration between students, faculty, and industry in operations research and analytics.</div>
+        </div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-ico">&#127942;</div>
+        <div>
+          <div class="ach-title">3x SPOT Award Recipient</div>
+          <div class="ach-org">ABHS - 2019 to 2024</div>
+          <div class="ach-desc">Recognized three times for exceptional impact in automation, data migration, and cloud process optimizations across 20+ enterprise projects.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="sh fade-in">
+      <span class="stag">// career</span>
+      <h2 class="stitle">Experience</h2>
+      <p class="sdesc">6+ years at one company, growing from engineer to senior lead across 20+ projects</p>
+    </div>
+    <div class="tl">
+      <div class="tl-item fade-in">
+        <div class="tl-head">
+          <div class="tl-role">Senior DevOps Engineer</div>
+          <span class="tl-period">Oct 2023 - Dec 2024</span>
+        </div>
+        <div class="tl-co">Advanced Business and Healthcare Solutions - Bengaluru, India</div>
+        <ul class="tl-ul">
+          <li>Architected AWS Cloud migration for 3 enterprise apps using CloudFormation and CDK, resulting in 40% improvement in deployment speed</li>
+          <li>Designed and standardized CI/CD pipelines with GitHub Actions and Harness, achieving 30% fewer release failures and 50% faster deployments</li>
+          <li>Implemented monitoring and alerting with CloudWatch, SNS, Lambda, Opsgenie, and NewRelic, reducing downtime by 25%</li>
+          <li>Built reusable DevOps templates standardizing deployment practices across hybrid AWS and on-premise environments</li>
+          <li>Served as trusted advisor to cross-functional stakeholders, aligning cloud adoption strategy with business outcomes</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tag">CDK</span><span class="tag">CloudFormation</span><span class="tag">GitHub Actions</span><span class="tag">Harness</span><span class="tag">EKS</span><span class="tag">NewRelic</span><span class="tag">Opsgenie</span>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-head">
+          <div class="tl-role">DevOps Engineer</div>
+          <span class="tl-period">Jul 2018 - Sep 2023</span>
+        </div>
+        <div class="tl-co">Advanced Business and Healthcare Solutions - Bengaluru, India</div>
+        <ul class="tl-ul">
+          <li>Progressed from Associate to DevOps Engineer, automating cloud operations across 20+ projects</li>
+          <li>Built and maintained CI/CD pipelines with GitHub Actions and Harness enabling zero-touch deployments and 50% release time reduction</li>
+          <li>Managed containerized deployments with Docker and Kubernetes (EKS) across cloud and on-premise environments</li>
+          <li>Automated infrastructure provisioning via CloudFormation, EC2, S3, IAM, and CDK with 40% efficiency improvement</li>
+          <li>Led data migration for acquired organizations and administered Jira and Aha for cross-functional project teams</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Jenkins</span><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">IAM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="sh fade-in">
+      <span class="stag">// education</span>
+      <h2 class="stitle">Education</h2>
+      <p class="sdesc">Academic foundation in computer science and cloud strategy</p>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card fade-in">
+        <div class="edu-deg">MS in Management Information Systems</div>
+        <div class="edu-school">University of Illinois Chicago</div>
+        <div class="edu-period">Jan 2025 - May 2026</div>
+        <ul class="edu-ul">
+          <li>Focus: Cloud Strategy, AI Automation, Agentic Systems</li>
+          <li>President, INFORMS Student Chapter</li>
+          <li>Graduating May 2026, actively seeking Cloud and DevOps roles</li>
+        </ul>
+        <span class="edu-badge">GPA 4.0 / 4.0</span>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-deg">Bachelor of Engineering, Computer Science</div>
+        <div class="edu-school">Sahyadri College of Engineering and Management, Mangalore, India</div>
+        <div class="edu-period">Aug 2014 - May 2018</div>
+        <ul class="edu-ul">
+          <li>Foundation in software engineering, algorithms, and systems design</li>
+          <li>Basis for 6+ year career in cloud and DevOps engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="sh fade-in">
+      <span class="stag">// toolkit</span>
+      <h2 class="stitle">Skills and Expertise</h2>
+      <p class="sdesc">Full-stack DevOps, cloud, and AI toolkit</p>
+    </div>
+    <div class="sk-grid">
+      <div class="sk-cat fade-in">
+        <div class="sk-title">Cloud Platforms</div>
+        <div class="sk-pills">
+          <span class="pill">EC2</span><span class="pill">Lambda</span><span class="pill">S3</span><span class="pill">RDS</span><span class="pill">VPC</span><span class="pill">IAM</span><span class="pill">SageMaker</span><span class="pill">Bedrock</span><span class="pill">Systems Manager</span>
+        </div>
+      </div>
+      <div class="sk-cat fade-in">
+        <div class="sk-title">IaC and Automation</div>
+        <div class="sk-pills">
+          <span class="pill">Terraform</span><span class="pill">CloudFormation</span><span class="pill">CDK</span><span class="pill">Python</span><span class="pill">Bash</span><span class="pill">YAML</span>
+        </div>
+      </div>
+      <div class="sk-cat fade-in">
+        <div class="sk-title">CI/CD and GitOps</div>
+        <div class="sk-pills">
+          <span class="pill">GitHub Actions</span><span class="pill">Harness</span><span class="pill">Jenkins</span><span class="pill">SonarQube</span><span class="pill">ArgoCD</span><span class="pill">Azure DevOps</span>
+        </div>
+      </div>
+      <div class="sk-cat fade-in">
+        <div class="sk-title">Containers and Orchestration</div>
+        <div class="sk-pills">
+          <span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">EKS</span><span class="pill">Helm</span><span class="pill">Serverless</span><span class="pill">FastAPI</span>
+        </div>
+      </div>
+      <div class="sk-cat fade-in">
+        <div class="sk-title">Monitoring and Security</div>
+        <div class="sk-pills">
+          <span class="pill">CloudWatch</span><span class="pill">NewRelic</span><span class="pill">Opsgenie</span><span class="pill">SNS</span><span class="pill">IAM Governance</span><span class="pill">Encryption</span>
+        </div>
+      </div>
+      <div class="sk-cat fade-in">
+        <div class="sk-title">Programming and AI</div>
+        <div class="sk-pills">
+          <span class="pill">Python</span><span class="pill">Java</span><span class="pill">TypeScript</span><span class="pill">NodeJS</span><span class="pill">AWS Bedrock</span><span class="pill">LLMOps</span><span class="pill">RESTful APIs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="sh fade-in">
+      <span class="stag">// work</span>
+      <h2 class="stitle">Projects</h2>
+      <p class="sdesc">Personal and academic work, publicly verifiable</p>
+    </div>
+    <div class="proj-note">Only real, publicly shareable projects listed here. Two more repos shipping soon.</div>
+    <div class="proj-grid">
+      <div class="proj-card fade-in">
+        <div class="proj-meta">
+          <span class="proj-yr">May 2025</span>
+          <span class="badge ai">AIOps / GenAI</span>
+        </div>
+        <div class="proj-title">NLP-to-SQL with AWS Bedrock</div>
+        <div class="proj-desc">Built an NLP-to-SQL interface using Amazon Bedrock and FastAPI, enabling natural language queries against MySQL databases. Deployed via AWS Innovation Sandbox and UIC IT. Presented at the AWS Imagine 2025 panel.</div>
+        <div class="proj-tags">
+          <span class="ptag">AWS Bedrock</span><span class="ptag">FastAPI</span><span class="ptag">MySQL</span><span class="ptag">RDS</span><span class="ptag">LLMOps</span>
+        </div>
+        <a href="https://github.com/shreya-poojary" target="_blank" class="proj-link">View on GitHub</a>
+      </div>
+      <div class="proj-card fade-in">
+        <div class="proj-meta">
+          <span class="proj-yr">May 2025</span>
+          <span class="badge app">Java / App</span>
+        </div>
+        <div class="proj-title">Budget Manager Desktop App</div>
+        <div class="proj-desc">Cross-platform Java Swing and SQLite app for personal finance automation with reporting and visualization modules. Built as part of MS-MIS coursework at UIC.</div>
+        <div class="proj-tags">
+          <span class="ptag">Java</span><span class="ptag">Swing</span><span class="ptag">SQLite</span>
+        </div>
+        <a href="https://github.com/shreya-poojary" target="_blank" class="proj-link">View on GitHub</a>
+      </div>
+      <div class="proj-card wip fade-in">
+        <div class="proj-meta">
+          <span class="proj-yr">Coming soon</span>
+          <span class="badge wip">In Progress</span>
+        </div>
+        <div class="proj-title">Terraform AWS Landing Zone</div>
+        <div class="proj-desc">Reusable Terraform modules for AWS multi-account setup with VPC, IAM, S3 remote state, and Security Hub. Publishing to GitHub soon.</div>
+        <div class="proj-tags">
+          <span class="ptag">Terraform</span><span class="ptag">AWS</span><span class="ptag">IAM</span><span class="ptag">HCL</span>
+        </div>
+        <span class="proj-link off">Repo coming soon</span>
+      </div>
+      <div class="proj-card wip fade-in">
+        <div class="proj-meta">
+          <span class="proj-yr">Coming soon</span>
+          <span class="badge wip">In Progress</span>
+        </div>
+        <div class="proj-title">FinOps Savings Calculator</div>
+        <div class="proj-desc">Interactive tool modeling AWS Reserved Instance vs on-demand cost tradeoffs with rightsizing recommendations. Inspired by real enterprise cost optimization work.</div>
+        <div class="proj-tags">
+          <span class="ptag">React</span><span class="ptag">AWS Pricing API</span><span class="ptag">FinOps</span>
+        </div>
+        <span class="proj-link off">Coming next</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="sh fade-in">
+      <span class="stag">// credentials</span>
+      <h2 class="stitle">Certifications</h2>
+      <p class="sdesc">7 verified badges - <a href="https://www.credly.com/users/shreya-jayaram-poojary/badges" target="_blank" style="color:var(--accent)">View all on Credly</a></p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#128295;</div>
+        <div>
+          <div class="cert-name">Harness Certified Expert - CI Developer</div>
+          <div class="cert-iss">Harness</div>
+          <div class="cert-date">Nov 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#9925;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Cloud Foundations</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued Apr 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#128187;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Cloud Developing</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued Mar 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#127959;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Cloud Architecting</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued Mar 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#9881;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Cloud Operations</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued Mar 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#128274;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Cloud Security</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued 2025</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-ico">&#128202;</div>
+        <div>
+          <div class="cert-name">AWS Academy Graduate - Data Engineering</div>
+          <div class="cert-iss">Amazon Web Services Training and Certification</div>
+          <div class="cert-date">Issued 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <div class="sh fade-in">
+          <span class="stag">// contact</span>
+          <h2 class="stitle">Let's Connect</h2>
+          <p class="sdesc">Actively seeking Cloud, DevOps, and FinOps roles starting May/June 2026.</p>
+        </div>
+        <div class="clinks">
+          <a href="mailto:spooj@uic.edu" class="citem">
+            <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="clbl">email</div><div class="cval">spooj@uic.edu</div></div>
+          </a>
+          <a href="tel:+12244210824" class="citem">
+            <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.22 2.4 2 2 0 012.22.4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006.29 6.29l1.06-1.44a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="clbl">phone</div><div class="cval">+1 224-421-0824</div></div>
+          </a>
+          <a href="https://linkedin.com/in/shreyapoojary31" target="_blank" class="citem">
+            <div class="cico"><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <div><div class="clbl">linkedin</div><div class="cval">shreyapoojary31</div></div>
+          </a>
+          <a href="https://github.com/shreya-poojary" target="_blank" class="citem">
+            <div class="cico"><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></div>
+            <div><div class="clbl">github</div><div class="cval">shreya-poojary</div></div>
+          </a>
+          <a href="https://www.credly.com/users/shreya-jayaram-poojary/badges" target="_blank" class="citem">
+            <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div><div class="clbl">credentials</div><div class="cval">View Credly Badges</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="cta-box fade-in">
+        <div class="avail">Open to opportunities - May 2026</div>
+        <h3>Ready to build something great?</h3>
+        <p>I bring 6+ years of hands-on AWS and Kubernetes experience, a 4.0 GPA in my MS program, and a proven track record shipping automation that moves real metrics. 50% faster deploys, 25% less downtime. Seeking Cloud, DevOps, or FinOps roles in Chicago or remote starting May/June 2026.</p>
+        <a href="mailto:spooj@uic.edu" class="btn-p">Send me an email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>2026 Shreya Jayaram Poojary - Chicago, IL</p>
+  <p>
+    <a href="https://github.com/shreya-poojary" target="_blank">GitHub</a> -
+    <a href="https://linkedin.com/in/shreyapoojary31" target="_blank">LinkedIn</a> -
+    <a href="https://www.credly.com/users/shreya-jayaram-poojary/badges" target="_blank">Credly</a>
+  </p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => {
+  let cur = '';
+  document.querySelectorAll('section[id]').forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
+  });
+});
+</script>
+</body>
+</html>
