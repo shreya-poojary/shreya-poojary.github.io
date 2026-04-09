@@ -13,7 +13,7 @@ const links = [
     icon: FileText,
     label: 'Resume',
     value: 'Download PDF',
-    href: '/resume.pdf',
+    href: '/ShreyaJayaram_Poojary_Resume_Portfolio.pdf',
     color: 'amber',
     download: true,
   },

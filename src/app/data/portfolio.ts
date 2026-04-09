@@ -1,5 +1,5 @@
 import { Briefcase, Award, TrendingUp, Rocket, Database, Brain } from 'lucide-react';
-import profilePhoto from '../../assets/a29a43855bbc5d958764660764e539590155572a.png';
+import profilePhoto from '../../assets/Portfolio_Image.png';
 
 export const personalInfo = {
   name: "Shreya Jayaram Poojary",
