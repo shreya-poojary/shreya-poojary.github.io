@@ -106,6 +106,17 @@ export function Hero() {
                       <div className="text-slate-300 text-lg md:text-xl">
                         {personalInfo.title}
                       </div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.4 }}
+                        className="mt-3 flex items-start gap-2"
+                      >
+                        <span className="w-1 h-4 mt-0.5 bg-cyan-500/60 rounded-full flex-shrink-0" />
+                        <span className="text-slate-400 text-sm md:text-base leading-snug">
+                          {personalInfo.subtitle}
+                        </span>
+                      </motion.div>
                     </div>
 
                     <div className="text-slate-400 space-y-1">
@@ -117,8 +128,8 @@ export function Hero() {
                         <span className="text-cyan-400">experience:</span>
                         <span>{personalInfo.experience}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-cyan-400">specialty:</span>
+                      <div className="flex items-start gap-2">
+                        <span className="text-cyan-400 flex-shrink-0">specialty:</span>
                         <span>{personalInfo.specialty}</span>
                       </div>
                     </div>
