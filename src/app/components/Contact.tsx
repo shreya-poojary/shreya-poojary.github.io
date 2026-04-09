@@ -1,13 +1,21 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, ExternalLink, FileText } from 'lucide-react';
 
 const links = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'spooj@uic.edu',
-    href: 'mailto:spooj@uic.edu',
+    value: 'shreyapoojary147@gmail.com',
+    href: 'mailto:shreyapoojary147@gmail.com',
     color: 'cyan',
+  },
+  {
+    icon: FileText,
+    label: 'Resume',
+    value: 'Download PDF',
+    href: '/resume.pdf',
+    color: 'amber',
+    download: true,
   },
   {
     icon: Linkedin,
@@ -53,6 +61,11 @@ const colorClasses: Record<string, { border: string; text: string; bg: string }>
     text: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
   },
+  amber: {
+    border: 'border-amber-500/30 hover:border-amber-500/60',
+    text: 'text-amber-400',
+    bg: 'bg-amber-500/10',
+  },
 };
 
 export function Contact() {
@@ -87,7 +100,9 @@ export function Contact() {
           {links.map((link, idx) => {
             const Icon = link.icon;
             const Component = link.href ? motion.a : motion.div;
-            const props = link.href ? { href: link.href, target: '_blank', rel: 'noopener noreferrer' } : {};
+            const props = link.href
+              ? { href: link.href, ...('download' in link && link.download ? { download: true } : { target: '_blank', rel: 'noopener noreferrer' }) }
+              : {};
 
             return (
               <Component
