@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Cloud, Server, GitBranch, Container, Activity, Code2, Database, Shield } from 'lucide-react';
+import { Cloud, Server, GitBranch, Container, Activity, Code2, Users } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -12,7 +12,7 @@ const skillCategories = [
     title: 'CI/CD & DevOps',
     icon: GitBranch,
     color: 'emerald',
-    skills: ['Harness CI/CD', 'GitHub Actions', 'Jenkins', 'CodePipeline', 'SonarQube'],
+    skills: ['Harness CI/CD', 'GitHub Actions', 'Jenkins', 'CodePipeline', 'AWS CodeBuild', 'JFrog', 'SonarQube'],
   },
   {
     title: 'Containers & Orchestration',
@@ -24,19 +24,25 @@ const skillCategories = [
     title: 'Monitoring & Observability',
     icon: Activity,
     color: 'orange',
-    skills: ['CloudWatch', 'Prometheus', 'Grafana', 'NewRelic', 'PagerDuty'],
+    skills: ['CloudWatch', 'Prometheus', 'Grafana', 'NewRelic', 'PagerDuty', 'Opsgenie'],
   },
   {
     title: 'Languages & Scripting',
     icon: Code2,
     color: 'pink',
-    skills: ['Python', 'Bash/Shell', 'Node.js', 'YAML', 'Groovy'],
+    skills: ['Python', 'Bash/Shell', 'Node.js', 'YAML', 'Groovy', 'Java', 'SQL', 'JSON'],
   },
   {
     title: 'Systems & Platforms',
     icon: Server,
     color: 'blue',
     skills: ['Linux Systems', 'Healthcare Tech', 'AIOps', 'AI-enabled Platforms'],
+  },
+  {
+    title: 'Collaboration & SDLC',
+    icon: Users,
+    color: 'indigo',
+    skills: ['Jira', 'Confluence', 'Aha!', 'Git', 'Agile/Scrum'],
   },
 ];
 
@@ -68,6 +74,7 @@ const colorClasses: Record<string, string> = {
   orange: 'border-orange-500/30 hover:border-orange-500/60 group-hover:text-orange-400',
   pink: 'border-pink-500/30 hover:border-pink-500/60 group-hover:text-pink-400',
   blue: 'border-blue-500/30 hover:border-blue-500/60 group-hover:text-blue-400',
+  indigo: 'border-indigo-500/30 hover:border-indigo-500/60 group-hover:text-indigo-400',
 };
 
 const bgColorClasses: Record<string, string> = {
@@ -77,6 +84,7 @@ const bgColorClasses: Record<string, string> = {
   orange: 'bg-orange-500/10',
   pink: 'bg-pink-500/10',
   blue: 'bg-blue-500/10',
+  indigo: 'bg-indigo-500/10',
 };
 
 export function Skills() {
