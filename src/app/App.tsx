@@ -11,7 +11,7 @@ import { CursorFX } from './components/CursorFX';
 
 export default function App() {
   return (
-    <div className="w-full min-h-screen bg-slate-950 text-slate-100 pt-[var(--nav-height)]">
+    <div className="w-full min-h-screen bg-slate-950 text-slate-100 pt-[calc(var(--nav-height)+1rem)]">
       <CursorFX />
       <Navbar />
       <Hero />
