@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Cloud, Server, GitBranch, Container, Activity, Code2, Users } from 'lucide-react';
+import { FloatingKeywords } from './FloatingKeywords';
 
 const skillCategories = [
   {
@@ -46,13 +47,12 @@ const skillCategories = [
   },
 ];
 
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -61,36 +61,36 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-    },
+    transition: { duration: 0.5 },
   },
 };
 
 const colorClasses: Record<string, string> = {
-  cyan: 'border-cyan-500/30 hover:border-cyan-500/60 group-hover:text-cyan-400',
+  cyan:    'border-cyan-500/30 hover:border-cyan-500/60 group-hover:text-cyan-400',
   emerald: 'border-emerald-500/30 hover:border-emerald-500/60 group-hover:text-emerald-400',
-  purple: 'border-purple-500/30 hover:border-purple-500/60 group-hover:text-purple-400',
-  orange: 'border-orange-500/30 hover:border-orange-500/60 group-hover:text-orange-400',
-  pink: 'border-pink-500/30 hover:border-pink-500/60 group-hover:text-pink-400',
-  blue: 'border-blue-500/30 hover:border-blue-500/60 group-hover:text-blue-400',
-  indigo: 'border-indigo-500/30 hover:border-indigo-500/60 group-hover:text-indigo-400',
+  purple:  'border-purple-500/30 hover:border-purple-500/60 group-hover:text-purple-400',
+  orange:  'border-orange-500/30 hover:border-orange-500/60 group-hover:text-orange-400',
+  pink:    'border-pink-500/30 hover:border-pink-500/60 group-hover:text-pink-400',
+  blue:    'border-blue-500/30 hover:border-blue-500/60 group-hover:text-blue-400',
+  indigo:  'border-indigo-500/30 hover:border-indigo-500/60 group-hover:text-indigo-400',
 };
 
 const bgColorClasses: Record<string, string> = {
-  cyan: 'bg-cyan-500/10',
+  cyan:    'bg-cyan-500/10',
   emerald: 'bg-emerald-500/10',
-  purple: 'bg-purple-500/10',
-  orange: 'bg-orange-500/10',
-  pink: 'bg-pink-500/10',
-  blue: 'bg-blue-500/10',
-  indigo: 'bg-indigo-500/10',
+  purple:  'bg-purple-500/10',
+  orange:  'bg-orange-500/10',
+  pink:    'bg-pink-500/10',
+  blue:    'bg-blue-500/10',
+  indigo:  'bg-indigo-500/10',
 };
 
 export function Skills() {
   return (
     <section className="py-20 bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
+      <FloatingKeywords seed={7} />
+      {/* Ambient glow */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       </div>
 
@@ -122,7 +122,7 @@ export function Skills() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillCategories.map((category, idx) => {
+          {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
               <motion.div

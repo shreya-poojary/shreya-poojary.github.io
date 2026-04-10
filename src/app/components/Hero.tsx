@@ -3,11 +3,13 @@ import { motion } from 'motion/react';
 import { Terminal, Cloud, GitBranch } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { HeroBackground } from './HeroBackground';
 
 export function Hero() {
   const [displayText, setDisplayText] = useState('');
   const fullText = '$ whoami';
   const [showCursor, setShowCursor] = useState(true);
+  const [photoColorized, setPhotoColorized] = useState(false);
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -35,6 +37,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <HeroBackground />
       {/* Animated background */}
       <div className="absolute inset-0 opacity-30">
         <motion.div
@@ -173,14 +176,15 @@ export function Hero() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 mx-auto md:mx-0 group"
+                    className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 mx-auto md:mx-0 group cursor-pointer"
+                    onClick={() => setPhotoColorized(v => !v)}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-emerald-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+                    <div className={`absolute inset-0 bg-gradient-to-tr from-cyan-500 to-emerald-500 rounded-2xl blur-lg transition-opacity duration-500 ${photoColorized ? 'opacity-60' : 'opacity-30 group-hover:opacity-60'}`} />
                     <div className="relative w-full h-full p-1 bg-slate-900 rounded-2xl border border-slate-700/50">
                       <ImageWithFallback
                         src={personalInfo.photoUrl}
                         alt={personalInfo.name}
-                        className="w-full h-full object-cover rounded-xl filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        className={`w-full h-full object-cover rounded-xl transition-all duration-500 ${photoColorized ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
                       />
                       <div className="absolute -bottom-3 -right-3 bg-slate-800 border border-slate-700 text-cyan-400 text-xs px-2 py-1 rounded font-mono shadow-lg">
                         status: online

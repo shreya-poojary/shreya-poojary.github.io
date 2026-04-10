@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Award, Mic, Users, Trophy } from 'lucide-react';
+import { FloatingKeywords } from './FloatingKeywords';
 
 const recognitions = [
   {
@@ -35,6 +36,7 @@ const recognitions = [
 export function Recognition() {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden border-t border-slate-800/50">
+      <FloatingKeywords seed={42} />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/3 right-0 w-96 h-96 bg-rose-500/20 rounded-full blur-3xl" />
       </div>
