@@ -2,6 +2,7 @@
 
 :root {
   --font-size: 16px;
+  --nav-height: 4rem;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -39,6 +40,20 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --font-size: 15px;
+    --nav-height: 3.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size: 14px;
+    --nav-height: 3.5rem;
+  }
 }
 
 .dark {

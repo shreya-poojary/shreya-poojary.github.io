@@ -60,7 +60,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-slate-800 bg-slate-950 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-      <nav className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center gap-1 md:gap-2 overflow-x-auto md:overflow-visible justify-start md:justify-center">
+      <nav className="max-w-7xl mx-auto px-3 md:px-6 h-[var(--nav-height)] flex items-center gap-1 md:gap-2 overflow-x-auto md:overflow-visible justify-start md:justify-center">
         {navItems.map((item) => (
           (() => {
             const id = item.href.replace("#", "");
