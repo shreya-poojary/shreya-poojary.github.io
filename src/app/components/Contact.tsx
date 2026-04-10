@@ -21,7 +21,7 @@ const links = [
     icon: Linkedin,
     label: 'LinkedIn',
     value: 'Connect with me',
-    href: 'https://www.linkedin.com/in/shreya-poojary',
+    href: 'https://www.linkedin.com/in/shreyapoojary31',
     color: 'blue',
   },
   {
