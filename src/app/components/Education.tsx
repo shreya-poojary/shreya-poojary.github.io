@@ -1,27 +1,11 @@
 import { motion } from 'motion/react';
 import { GraduationCap } from 'lucide-react';
 import { FloatingKeywords } from './FloatingKeywords';
-
-const education = [
-  {
-    degree: 'M.S., Management Information Systems',
-    institution: 'University of Illinois at Chicago',
-    period: 'Jan 2025 – May 2026',
-    gpa: '4.0',
-    location: 'Chicago, IL',
-  },
-  {
-    degree: 'B.E., Computer Science',
-    institution: 'Sahyadri College of Engineering and Management',
-    period: 'Aug 2014 – May 2018',
-    gpa: null,
-    location: null,
-  },
-];
+import { educationData } from '../data/portfolio';
 
 export function Education() {
   return (
-    <section className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50">
+    <section id="education" className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50">
       <FloatingKeywords seed={21} />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl" />
@@ -40,16 +24,14 @@ export function Education() {
               $ ./education.sh
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl text-slate-100 mb-4">
-            Education
-          </h2>
+          <h2 className="text-4xl md:text-5xl text-slate-100 mb-4">Education</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Academic foundation behind the engineering mindset
           </p>
         </motion.div>
 
         <div className="space-y-8 max-w-3xl mx-auto">
-          {education.map((edu, idx) => (
+          {educationData.map((edu, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, x: -20 }}
@@ -58,7 +40,7 @@ export function Education() {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               className="relative"
             >
-              {idx < education.length - 1 && (
+              {idx < educationData.length - 1 && (
                 <div className="absolute left-6 top-16 w-0.5 h-full bg-amber-500/10 border-l-2 border-amber-500/30" />
               )}
 

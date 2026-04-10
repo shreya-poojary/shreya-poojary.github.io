@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Terminal, Cloud, GitBranch } from 'lucide-react';
+import { Terminal, Cloud, GitBranch, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { HeroBackground } from './HeroBackground';
@@ -21,9 +21,9 @@ export function Hero() {
           i++;
         } else {
           clearInterval(typingInterval);
-          setTimeout(() => setPhase(1), 500);
+          setTimeout(() => setPhase(1), 400);
         }
-      }, 100);
+      }, 50);
       return () => clearInterval(typingInterval);
     }
   }, [phase]);
@@ -38,36 +38,20 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <HeroBackground />
-      {/* Animated background */}
       <div className="absolute inset-0 opacity-30">
         <motion.div
           className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
-          animate={{
-            y: [0, 50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ y: [0, 50, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"
-          animate={{
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ y: [0, -50, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {/* Terminal window */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -161,22 +145,25 @@ export function Hero() {
                       </motion.div>
                     </div>
 
-                    <div className="pt-6">
-                      <a
+                    <div className="pt-2">
+                      <motion.a
                         href="#contact"
-                        className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-900 rounded hover:from-cyan-400 hover:to-emerald-400 transition-all transform hover:scale-105"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-900 font-bold rounded-lg hover:from-cyan-400 hover:to-emerald-400 transition-all shadow-lg shadow-cyan-500/20 text-base"
                       >
                         <span className="font-mono">$ contact --now</span>
-                      </a>
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.a>
                     </div>
                   </div>
 
-                  {/* Profile Photo Card */}
+                  {/* Profile Photo */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 mx-auto md:mx-0 group cursor-pointer"
+                    className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 mx-auto md:mx-0 group cursor-pointer"
                     onClick={() => setPhotoColorized(v => !v)}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-tr from-cyan-500 to-emerald-500 rounded-2xl blur-lg transition-opacity duration-500 ${photoColorized ? 'opacity-60' : 'opacity-30 group-hover:opacity-60'}`} />
@@ -197,7 +184,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 // ✏️ Add or remove keywords here — positions and animations are computed automatically
 export const keywords = [
@@ -28,7 +28,7 @@ const SIZES = ['text-sm', 'text-base', 'text-sm', 'text-base', 'text-sm'];
 
 // Deterministic spread — golden-ratio shuffle guarantees even distribution
 function getProps(i: number, seed: number) {
-  const n = (i + seed) % (keywords.length * 7); // large enough to vary
+  const n = (i + seed) % (keywords.length * 7);
   const phi  = 0.618033988749895;
   const phi2 = 0.381966011250105;
   const left = ((n * phi  * 100) % 88) + 2;
@@ -55,9 +55,11 @@ interface Props {
 }
 
 export function FloatingKeywords({ seed = 0 }: Props) {
+  const shouldReduce = useReducedMotion();
+
   return (
     <div
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden"
+      className="hidden md:block absolute inset-0 pointer-events-none select-none overflow-hidden"
       aria-hidden="true"
     >
       {keywords.map((word, i) => {
@@ -67,13 +69,12 @@ export function FloatingKeywords({ seed = 0 }: Props) {
             key={`${word}-${i}`}
             className={`absolute font-mono ${p.size} ${p.color}`}
             style={{ left: `${p.left}%`, top: `${p.top}%`, opacity: 0.15 }}
-            animate={{ x: p.dx, y: p.dy }}
-            transition={{
-              duration: p.dur,
-              delay: p.delay,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            animate={shouldReduce ? undefined : { x: p.dx, y: p.dy }}
+            transition={
+              shouldReduce
+                ? undefined
+                : { duration: p.dur, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }
+            }
           >
             {word}
           </motion.span>
