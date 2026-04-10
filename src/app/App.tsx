@@ -18,7 +18,7 @@ export default function App() {
         Skip to content
       </a>
       <Nav />
-      <main id="content" className="pt-16">
+      <main id="content" className="w-full">
         <Hero />
         <Skills />
         <Experience />
