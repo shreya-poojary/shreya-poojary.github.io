@@ -87,7 +87,7 @@ const bgColorClasses: Record<string, string> = {
 
 export function Skills() {
   return (
-    <section className="py-20 bg-slate-950 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-slate-950 relative overflow-hidden scroll-mt-20">
       <FloatingKeywords seed={7} />
       {/* Ambient glow */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">

@@ -21,7 +21,7 @@ const education = [
 
 export function Education() {
   return (
-    <section className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50">
+    <section id="education" className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50 scroll-mt-20">
       <FloatingKeywords seed={21} />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl" />

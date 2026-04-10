@@ -5,7 +5,7 @@ import { FloatingKeywords } from './FloatingKeywords';
 
 export function Certifications() {
   return (
-    <section className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50">
+    <section id="certifications" className="py-20 bg-slate-900 relative overflow-hidden border-t border-slate-800/50 scroll-mt-20">
       <FloatingKeywords seed={35} />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />

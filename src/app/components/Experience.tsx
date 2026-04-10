@@ -23,7 +23,7 @@ const colorClasses: Record<string, { border: string; glow: string; text: string 
 
 export function Experience() {
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden">
+    <section id="experience" className="py-20 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden scroll-mt-20">
       <FloatingKeywords seed={14} />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
