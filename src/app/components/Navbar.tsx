@@ -59,8 +59,8 @@ export function Navbar() {
   }, [sectionIds]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-slate-700/50 bg-slate-950/80 backdrop-blur-md">
-      <nav className="max-w-7xl mx-auto px-4 md:px-6 h-14 flex items-center gap-2 md:gap-3 overflow-x-auto">
+    <header className="fixed top-0 inset-x-0 z-50 border-b border-slate-800 bg-slate-950 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+      <nav className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center gap-1 md:gap-2 overflow-x-auto md:overflow-visible justify-start md:justify-center">
         {navItems.map((item) => (
           (() => {
             const id = item.href.replace("#", "");
@@ -72,13 +72,19 @@ export function Navbar() {
             onClick={() => setActiveId(id)}
             aria-current={isActive ? "page" : undefined}
             className={[
-              "whitespace-nowrap rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+              "relative whitespace-nowrap rounded-md px-3 py-2 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
               isActive
-                ? "text-cyan-300 bg-slate-800/70 border border-cyan-500/20"
-                : "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/70",
+                ? "text-slate-100"
+                : "text-slate-400 hover:text-slate-200",
             ].join(" ")}
           >
             {item.label}
+            <span
+              className={[
+                "absolute left-3 right-3 -bottom-0.5 h-[2px] rounded-full transition-all",
+                isActive ? "bg-cyan-400 opacity-100" : "bg-transparent opacity-0",
+              ].join(" ")}
+            />
           </a>
             );
           })()
