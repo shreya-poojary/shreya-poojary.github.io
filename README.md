@@ -66,8 +66,4 @@ Your site URL will look like:
 - `https://<username>.github.io/<repo>/`
 
 If you use a different Pages configuration (e.g., `gh-pages` branch or `/docs`), update it in the GitHub repo settings.
-
-### Credits
-
-Initial design source (Figma): `https://www.figma.com/design/UJu4nA4SRPW864aMUH47qZ/Creative-Portfolio-Website`
-  
+ 
